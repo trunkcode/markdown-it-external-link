@@ -1,0 +1,23 @@
+version: "{build}"
+
+# branches to build
+branches:
+  only:
+    - main
+
+environment:
+  matrix:
+    # node.js
+    - nodejs_version: "16"
+    - nodejs_version: "18"
+    - nodejs_version: ""
+
+install:
+  - ps: Install-Product node $env:nodejs_version
+  - npm install
+
+test_script:
+  - npm run lint
+  - npm run test
+
+build: off

@@ -1,0 +1,52 @@
+{
+  "name": "markdown-it-external-link",
+  "description": "markdown-it plugin that adds `target` and `rel` attributes on external links.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "types": "types/index.d.ts",
+  "files": [
+    "LICENSE",
+    "index.js",
+    "runkitExample.js",
+    "types/index.d.ts"
+  ],
+  "scripts": {
+    "build": "rm -f index.js && tsc",
+    "lint": "eslint .",
+    "lint:js": "eslint . --ext .js",
+    "lint:ts": "eslint . --ext .ts",
+    "test": "npm run test:link && npm run test:tsd",
+    "test:link": "mocha test/link.js",
+    "test:tsd": "npx tsd"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/trunkcode/markdown-it-external-link.git"
+  },
+  "keywords": [
+    "markdown-it",
+    "plugin",
+    "external-link"
+  ],
+  "author": "TrunkCode <support@trunkcode.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/trunkcode/markdown-it-external-link/issues"
+  },
+  "homepage": "https://github.com/trunkcode/markdown-it-external-link#readme",
+  "runkitExampleFilename": "runkitExample.js",
+  "dependencies": {
+    "detect-external-link": "1.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "20.5.4",
+    "@types/markdown-it": "13.0.0",
+    "@typescript-eslint/eslint-plugin": "6.4.1",
+    "@typescript-eslint/parser": "6.4.1",
+    "eslint": "8.47.0",
+    "mocha": "10.2.0",
+    "markdown-it": "13.0.1",
+    "tsd": "0.28.1",
+    "typescript": "5.1.6"
+  }
+}
