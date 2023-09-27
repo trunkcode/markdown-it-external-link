@@ -1,20 +1,26 @@
 {
   "name": "markdown-it-external-link",
   "description": "markdown-it plugin that adds `target` and `rel` attributes on external links.",
-  "version": "1.0.1",
-  "main": "index.js",
-  "types": "types/index.d.ts",
+  "version": "1.1.0",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/esm/index.d.ts"
+    }
+  },
+  "types": "dist/esm/index.d.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
   "files": [
     "LICENSE",
-    "index.js",
-    "runkitExample.js",
-    "types/index.d.ts"
+    "dist/",
+    "runkitExample.js"
   ],
   "scripts": {
-    "build": "rm -f index.js && tsc",
-    "lint": "eslint .",
-    "lint:js": "eslint . --ext .js",
-    "lint:ts": "eslint . --ext .ts",
+    "build": "rm -rf dist/* && tsc -p tsconfig-esm.json && tsc -p tsconfig-cjs.json && bash fixup",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
     "test": "npm run test:link && npm run test:tsd",
     "test:link": "mocha test/link.js",
     "test:tsd": "npx tsd"
@@ -36,17 +42,17 @@
   "homepage": "https://github.com/trunkcode/markdown-it-external-link#readme",
   "runkitExampleFilename": "runkitExample.js",
   "dependencies": {
-    "detect-external-link": "1.0.2"
+    "detect-external-link": "2.0.1"
   },
   "devDependencies": {
-    "@types/node": "20.5.4",
-    "@types/markdown-it": "13.0.0",
-    "@typescript-eslint/eslint-plugin": "6.4.1",
-    "@typescript-eslint/parser": "6.4.1",
-    "eslint": "8.47.0",
+    "@types/markdown-it": "13.0.2",
+    "@types/node": "20.7.0",
+    "@typescript-eslint/eslint-plugin": "6.7.3",
+    "@typescript-eslint/parser": "6.7.3",
+    "eslint": "8.50.0",
     "mocha": "10.2.0",
-    "markdown-it": "13.0.1",
-    "tsd": "0.28.1",
-    "typescript": "5.1.6"
+    "markdown-it": "13.0.2",
+    "tsd": "0.29.0",
+    "typescript": "5.2.2"
   }
 }
