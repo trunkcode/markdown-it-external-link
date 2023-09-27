@@ -7,8 +7,11 @@
 # Remove files for archives generated using `git archive`.
 .*                     export-ignore
 appveyor.yml           export-ignore
+fixup                  export-ignore
 package-lock.json      export-ignore
 src                    export-ignore
 test                   export-ignore
 tsconfig.json          export-ignore
-types/index.test-d.ts  export-ignore
+tsconfig-cjs.json      export-ignore
+tsconfig-esm.json      export-ignore
+types/                 export-ignore
